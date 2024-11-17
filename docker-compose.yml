@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  jellyreboot:
+    build: 
+      context: .
+      dockerfile: jelly-reboot.dockerfile
+    container_name: jellyreboot
+    ports:
+      - "9013:9013"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - saltbox
+    group_add:
+      - "1001"  # Docker socket group ID
+
+networks:
+  saltbox:
+    external: true

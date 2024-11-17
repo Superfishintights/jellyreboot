@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JellyReboot - Jellyfin Monitor</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+</head>
+<body>
+    <h1>JellyReboot - Jellyfin Container Monitor</h1>
+    
+    <form id="loginForm" onsubmit="login(event)">
+        <h2>Login</h2>
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" required>
+        </div>
+        <div style="margin-top: 10px;">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required>
+        </div>
+        <div style="margin-top: 10px;">
+            <button type="submit" class="button">Login</button>
+        </div>
+    </form>
+
+    <div id="content">
+        <div class="status-container">
+            <h2>Status: <span id="status">Loading...</span></h2>
+            <pre id="details">Loading...</pre>
+        </div>
+        <button id="restartButton" class="button" onclick="restartContainer()">Restart Container</button>
+    </div>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
